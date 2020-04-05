@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Pagination from "./common/pagination";
 import { paginate } from "../utils/paginate";
 import ListGroup from "./common/listGroup";
-
+import { Link } from "react-router-dom";
 import MovieTable from "./moviesTable";
 import _ from "lodash";
 
@@ -74,14 +74,13 @@ class Movie extends Component {
 							/>
 						</div>
 						<div className="col">
-							<button
-								onClick={() =>
-									this.props.history.push("/movies/new")
-								}
+							<Link
+								to="/movies/new"
 								className="btn btn-primary"
+								style={{ marginBottom: 20 }}
 							>
 								New Movie
-							</button>
+							</Link>
 							<p>Showing {count} movies in the database</p>
 							<MovieTable
 								onDelete={this.handleDelete}
