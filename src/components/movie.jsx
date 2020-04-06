@@ -6,6 +6,8 @@ import ListGroup from "./common/listGroup";
 import { Link } from "react-router-dom";
 import MovieTable from "./moviesTable";
 import _ from "lodash";
+import { getGenres } from "../services/fakeGenreService";
+import { getMovies } from "../services/fakeMovieService";
 
 class Movie extends Component {
 	state = {
@@ -17,6 +19,12 @@ class Movie extends Component {
 		sortColumn: { path: "title", order: " asc" }
 	};
 
+	componentDidMount() {
+		this.setState({
+			movies: getMovies(),
+			genres: [{ _id: "", name: "All Genres" }, ...getGenres()]
+		});
+	}
 	handleDelete = movie => {
 		const movies = this.state.movies.filter(m => m._id !== movie._id);
 		this.setState({ movies });
@@ -42,9 +50,15 @@ class Movie extends Component {
 		this.setState({ sortColumn });
 	};
 	render() {
-		const { currentPage, pageSize, selectedGenre, sortColumn } = this.state;
-		const { movies: allMovies } = this.props;
-		const genres = [{ _id: "", name: "All Genres" }, ...this.props.genres];
+		const {
+			currentPage,
+			genres,
+			pageSize,
+			selectedGenre,
+			sortColumn,
+			movies: allMovies
+		} = this.state;
+
 		const filteredMovies =
 			selectedGenre && selectedGenre._id
 				? allMovies.filter(

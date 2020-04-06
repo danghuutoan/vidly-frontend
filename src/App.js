@@ -9,8 +9,7 @@ import NotFound from "./components/notFound";
 import MovieForm from "./components/movieForm";
 import LoginForm from "./components/loginForm";
 import RegisterForm from "./components/registerForm";
-import { getGenres } from "./services/fakeGenreService";
-import { getMovies } from "./services/fakeMovieService";
+
 class App extends Component {
 	items = [
 		{ name: "Movies", path: "/movies" },
@@ -19,17 +18,6 @@ class App extends Component {
 		{ name: "Login", path: "/login" },
 		{ name: "Register", path: "/register" }
 	];
-	state = {
-		movies: [],
-		genres: []
-	};
-
-	componentDidMount() {
-		this.setState({
-			movies: getMovies(),
-			genres: [...getGenres()]
-		});
-	}
 
 	render() {
 		return (
@@ -42,16 +30,7 @@ class App extends Component {
 							<Route path="/movies/:id" component={MovieForm} />
 
 							<Route path="/register" component={RegisterForm} />
-							<Route
-								path="/movies"
-								render={props => (
-									<Movie
-										movies={this.state.movies}
-										genres={this.state.genres}
-										{...props}
-									/>
-								)}
-							/>
+							<Route path="/movies" component={Movie} />
 							<Route path="/customers" component={Customer} />
 							<Route path="/rentals" component={Rental} />
 							<Route path="/not-found" component={NotFound} />
