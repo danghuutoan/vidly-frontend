@@ -17,8 +17,7 @@ class App extends Component {
 		{ name: "Customers", path: "/customers" },
 		{ name: "Rentals", path: "/rentals" },
 		{ name: "Login", path: "/login" },
-		{ name: "Register", path: "/register" },
-		{ name: "New Movie Form", path: "/movies/new" }
+		{ name: "Register", path: "/register" }
 	];
 	state = {
 		movies: [],
