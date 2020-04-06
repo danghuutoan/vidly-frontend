@@ -9,7 +9,6 @@ import NotFound from "./components/notFound";
 import MovieForm from "./components/movieForm";
 import LoginForm from "./components/loginForm";
 import RegisterForm from "./components/registerForm";
-import NewMovieForm from "./components/newMovieForm";
 import { getGenres } from "./services/fakeGenreService";
 import { getMovies } from "./services/fakeMovieService";
 class App extends Component {
