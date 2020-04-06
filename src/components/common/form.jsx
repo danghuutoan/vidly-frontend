@@ -11,7 +11,6 @@ class Form extends Component {
 		const { data } = this.state;
 		const options = { abortEarly: false };
 		const { error } = Joi.validate(data, this.schema, options);
-		console.log(error);
 		if (!error) return null;
 		const errors = {};
 
@@ -37,8 +36,6 @@ class Form extends Component {
 
 	handleChange = ({ currentTarget: input }) => {
 		const { name, value } = input;
-		console.log(value);
-		console.log(name);
 		const errors = { ...this.state.errors };
 		const errorMessage = this.validateProperty({ name, value });
 		if (errorMessage) errors[input.name] = errorMessage;
@@ -71,8 +68,8 @@ class Form extends Component {
 		);
 	};
 
-	renderSeletList = (name, label, items) => {
-		console.log(items);
+	renderSeletList = (name, label, items, value) => {
+		console.log(value);
 		const { data, errors } = this.state;
 		return (
 			<SelectInput

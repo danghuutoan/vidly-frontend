@@ -49,13 +49,7 @@ class App extends Component {
 							<Route
 								exact
 								path="/movies/new"
-								render={props => (
-									<NewMovieForm
-										genres={this.state.genres}
-										{...props}
-										onSubmit={this.saveNewMovie}
-									/>
-								)}
+								component={MovieForm}
 							/>
 							<Route path="/movies/:id" component={MovieForm} />
 

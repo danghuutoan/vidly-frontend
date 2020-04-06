@@ -3,7 +3,6 @@ import { Link, NavLink } from "react-router-dom";
 class NavBar extends Component {
 	state = { selectedItem: "" };
 	onItemSelect = item => {
-		console.log(item);
 		this.setState({ selectedItem: item.path });
 	};
 	renderItems = items => {
