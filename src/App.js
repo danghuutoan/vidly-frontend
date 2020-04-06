@@ -30,12 +30,7 @@ class App extends Component {
 			genres: [...getGenres()]
 		});
 	}
-	saveNewMovie = (data, history) => {
-		console.log(data);
-		const movies = [...this.state.movies, data];
-		this.setState({ movies });
-		history.push("/movies");
-	};
+
 	render() {
 		return (
 			<React.Fragment>
