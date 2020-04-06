@@ -1,11 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from "./common/form";
 import Joi from "joi-browser";
-import { getGenres, getGenre } from "../services/fakeGenreService";
+import { getGenres } from "../services/fakeGenreService";
 import { getMovie } from "../services/fakeMovieService";
-
-import Movie from "./movie";
-import { getMovies } from "../services/fakeMovieService";
 
 class MovieForm extends Form {
 	state = {
@@ -40,26 +37,25 @@ class MovieForm extends Form {
 		const data = { ...this.state.data };
 
 		const movie = getMovie(this.props.match.params.id);
-		console.log(movie, this.props.match.params.id);
-		data._id = movie._id;
-		data.genreId = movie.genre._id;
-		data.title = movie.title;
-		data.numberInStock = movie.numberInStock;
-		data.dailyRentalRate = movie.dailyRentalRate;
+		if (movie) {
+			data._id = movie._id;
+			data.genreId = movie.genre._id;
+			data.title = movie.title;
+			data.numberInStock = movie.numberInStock;
+			data.dailyRentalRate = movie.dailyRentalRate;
+		}
 
-		// console.log("movie form mounted");
 		const genres = getGenres();
 		this.setState({ genres, data });
 	}
 	doSubmit = () => {
-		console.log("submitted");
 		this.props.history.push("/movies");
 	};
 	render() {
 		const { genres } = this.state;
 		return (
 			<div>
-				<h1>Movie Form {this.props.match.params.id}</h1>
+				<h1>Movie Form </h1>
 				<form onSubmit={this.handleSubmit}>
 					{this.renderInput("title", "Title")}
 					{this.renderSeletList("genreId", "Genres", genres)}
