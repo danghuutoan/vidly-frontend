@@ -45,11 +45,6 @@ class App extends Component {
 					<div className="content">
 						<Switch>
 							<Route path="/login" component={LoginForm} />
-							<Route
-								exact
-								path="/movies/new"
-								component={MovieForm}
-							/>
 							<Route path="/movies/:id" component={MovieForm} />
 
 							<Route path="/register" component={RegisterForm} />
