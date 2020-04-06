@@ -68,8 +68,7 @@ class Form extends Component {
 		);
 	};
 
-	renderSeletList = (name, label, items, value) => {
-		console.log(value);
+	renderSeletList = (name, label, items) => {
 		const { data, errors } = this.state;
 		return (
 			<SelectInput

@@ -6,6 +6,7 @@ const SelectInput = ({ name, label, items, error, ...rest }) => {
 			<label htmlFor={name}>{label}</label>
 
 			<select {...rest} name={name} id={name} className="form-control">
+				<option value="" />
 				{items.map(item => (
 					<option key={item._id} value={item._id}>
 						{item.name}
