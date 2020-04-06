@@ -45,7 +45,6 @@ class Movie extends Component {
 		const { currentPage, pageSize, selectedGenre, sortColumn } = this.state;
 		const { movies: allMovies } = this.props;
 		const genres = [{ _id: "", name: "All Genres" }, ...this.props.genres];
-		console.log(genres);
 		const filteredMovies =
 			selectedGenre && selectedGenre._id
 				? allMovies.filter(
