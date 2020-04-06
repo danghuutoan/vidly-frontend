@@ -10,7 +10,6 @@ class ListGroup extends Component {
 			textProperty,
 			valueProperty
 		} = this.props;
-		let classes = "list-group-item ";
 
 		return (
 			<ul className="list-group">
@@ -21,7 +20,7 @@ class ListGroup extends Component {
 						className={
 							item === selectedItem
 								? "list-group-item active"
-								: classes
+								: "list-group-item "
 						}
 					>
 						{item[textProperty]}
